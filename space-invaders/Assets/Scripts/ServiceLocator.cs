@@ -1,6 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 public class ServiceLocator
 {
@@ -9,11 +13,11 @@ public class ServiceLocator
     private static ServiceLocator _locator = null;
     public static ServiceLocator Instance => _locator ??= new ServiceLocator();
 
+    public GameLogic GameLogic { get; private set; }
     public GameConfig Config { get; private set; }
 
     private ServiceLocator()
     {
-        // Prepare game state 
     }
 
     public void InjectGameConfig(GameConfig gc)
@@ -26,10 +30,26 @@ public class ServiceLocator
         Config = gc;
     }
 
-    public void StartGame(bool isRestart = false)
+    public async void StartGame(bool isRestart = false)
     {
-        Log("Start");
-        SceneManager.LoadScene(Config.GameSceneName); // TODO: make some async await with result of game?
+        if (GameLogic == null)
+        {
+            GameLogic = new GameLogic();
+            Log("CreateGameLogic");
+        }
+
+        Log("Clean up field if needed");
+        GameLogic.CleanUp();
+        Log("StartLoadScene");
+        var asyncLoad = SceneManager.LoadSceneAsync(Config.GameSceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            await Task.Yield();
+        }
+
+        Log("SceneLoaded");
+        GameLogic.StartGame();
     }
 
     public void ReturnToMain(bool abortGame = false)
@@ -41,9 +61,5 @@ public class ServiceLocator
     private void Log(string message)
     {
         Debug.Log($"{Tag} {message}");
-    }
-
-    public void Start()
-    {
     }
 }

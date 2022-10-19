@@ -38,9 +38,9 @@ namespace CubeSpaceFree
             // ignore collision with Enemy or Boundary
             if (other.name=="Boundary")
                 return;
-            if (other.GetComponent<Enemy>() && this.GetComponent<EnemyBullet>())
+            if (other.GetComponent<Enemy2>() && this.GetComponent<EnemyBullet>())
                 return;
-            if (other.GetComponent<EnemyBullet>() && this.GetComponent<Enemy>())
+            if (other.GetComponent<EnemyBullet>() && this.GetComponent<Enemy2>())
                 return;
 
             if (explosion)

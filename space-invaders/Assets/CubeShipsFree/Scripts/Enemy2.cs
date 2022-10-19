@@ -5,7 +5,7 @@ using System.Collections;
 namespace CubeSpaceFree
 {
     // Stub class to make it easier to check object type during collision (can be otpimized by using Tag instead).
-    public class Enemy : MonoBehaviour
+    public class Enemy2 : MonoBehaviour
     {
 
     }

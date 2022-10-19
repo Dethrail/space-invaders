@@ -1,4 +1,4 @@
-﻿public class PlayerProgress
+﻿public class GameProgress
 {
     // score
     // lives

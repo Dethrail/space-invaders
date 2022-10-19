@@ -5,7 +5,7 @@ namespace Game
 {
     public class Enemy : MonoBehaviour
     {
-        private static EnemyMoveDirection _state;
+        private static EnemyMoveDirection _state = EnemyMoveDirection.Right;
 
         // TODO: move this from static
         public static void IncrementState()

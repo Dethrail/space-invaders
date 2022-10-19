@@ -7,6 +7,7 @@ public class GameConfig : ScriptableObject
     public string StarterSceneName;
     public string GameSceneName;
 
-    public GameObject Player;
+    public Player Player;
     public Enemy Enemy;
+    public Bullet Bullet;
 }

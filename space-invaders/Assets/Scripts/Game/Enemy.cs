@@ -5,10 +5,6 @@ namespace Game
 {
     public class Enemy : MonoBehaviour
     {
-        // they switch direction when last touches side
-        private const float BottomSwitchDelay = 2f;
-        private float _currentSwitchDelay = 0f;
-
         private static EnemyMoveDirection _state;
 
         // TODO: move this from static
@@ -16,6 +12,17 @@ namespace Game
         {
             _state = _state.Next();
             // invalidate?
+        }
+
+        private void OnTriggerEnter(Collider triggeringObject)
+        {
+            var bullet = triggeringObject.GetComponent<Bullet>();
+            if (bullet != null && bullet.IsPlayerBullet)
+            {
+                Destroy(gameObject);
+                Destroy(triggeringObject.gameObject);
+                // add effect
+            }
         }
 
         public event Action<Enemy> OnDestroyEvent;

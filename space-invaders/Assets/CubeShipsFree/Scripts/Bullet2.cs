@@ -5,7 +5,7 @@ using System.Collections;
 namespace CubeSpaceFree
 {
     // A stub class that we use to check if an object is a Bullet (we could have used a Tag instead).
-    public class Bullet : MonoBehaviour
+    public class Bullet2 : MonoBehaviour
     {
         public void OnBecameInvisible()
         {

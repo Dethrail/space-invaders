@@ -13,7 +13,11 @@ public class Border : MonoBehaviour
 
     private void OnTriggerEnter(Collider triggeringObject)
     {
-        Enemy.IncrementState();
+        if (triggeringObject.GetComponent<Enemy>() != null)
+        {
+            Enemy.IncrementState();
+        }
+
         _border.enabled = false;
         EnableCollider();
     }

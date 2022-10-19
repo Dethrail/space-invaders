@@ -12,6 +12,13 @@ namespace Game
         {
             // reset all 
             SpawnWaves();
+            SpawnPlayer();
+        }
+
+        private void SpawnPlayer()
+        {
+            var player = Object.Instantiate(ServiceLocator.Instance.Config.Player, new Vector3(0, -14, 0f),
+                Quaternion.Euler(-90,0,0));
         }
 
         private async void SpawnWaves()
@@ -23,7 +30,7 @@ namespace Game
                     var x = -6.9f + 2.3f * i;
                     var y = 9.2f - 2.0f * j;
                     var enemy = Object.Instantiate(ServiceLocator.Instance.Config.Enemy, new Vector3(x, y, 0f),
-                        Quaternion.identity);
+                        Quaternion.Euler(-90,0,0));
                     enemy.OnDestroyEvent += OnDestroyEnemy;
                     _enemies.Add(enemy);
                 }
@@ -36,7 +43,7 @@ namespace Game
         {
             foreach (var enemy in _enemies)
             {
-                enemy.transform.Translate(Vector2.down * 2f); // need move all enemies
+                enemy.transform.Translate(Vector3.down * 2f, Space.World);
             }
         }
 

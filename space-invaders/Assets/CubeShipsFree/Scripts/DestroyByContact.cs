@@ -32,15 +32,15 @@ namespace CubeSpaceFree
         {
             // Note: you can optimize these by using Tags
             // ignore bullet to bullet collision
-            if (this.GetComponent<Bullet>() && other.GetComponent<Bullet>())
+            if (this.GetComponent<Bullet2>() && other.GetComponent<Bullet2>())
                 return;
 
             // ignore collision with Enemy or Boundary
             if (other.name=="Boundary")
                 return;
-            if (other.GetComponent<Enemy2>() && this.GetComponent<EnemyBullet>())
+            if (other.GetComponent<Enemy2>() && this.GetComponent<EnemyBullet2>())
                 return;
-            if (other.GetComponent<EnemyBullet>() && this.GetComponent<Enemy2>())
+            if (other.GetComponent<EnemyBullet2>() && this.GetComponent<Enemy2>())
                 return;
 
             if (explosion)

@@ -25,43 +25,7 @@ namespace Common
         {
             return entity.hasAsset && !entity.isAssetLoaded;
         }
-
-//         private void CopySpecialComponents(GameObject _sourceGO, GameObject _targetGO)
-//         {
-//             foreach (var component in _sourceGO.GetComponents<Component>())
-//             {
-//                 var componentType = component.GetType();
-//                 if (componentType != typeof(Transform) &&
-//                     componentType != typeof(MeshFilter) &&
-//                     componentType != typeof(UnityView) &&
-// #if UNITY_EDITOR
-//                     componentType != typeof(EntityLink) &&
-// #endif
-//                     componentType != typeof(MeshRenderer)
-//                    )
-//                 {
-//                     var addedComponent = CopyComponent(component, _targetGO);
-//
-//                     if (component is BoxCollider sourceBox && addedComponent is BoxCollider targetBox)
-//                     {
-//                         targetBox.center = sourceBox.center;
-//                         targetBox.size = sourceBox.size;
-//                     }
-//
-//                     Object.Destroy(component);
-//                 }
-//             }
-//         }
-
-        // private Component CopyComponent(Component original, GameObject destination)
-        // {
-        //     System.Type type = original.GetType();
-        //     Component copy = destination.AddComponent(type);
-        //
-        //     return copy;
-        // }
-
-
+        
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var entity in entities)

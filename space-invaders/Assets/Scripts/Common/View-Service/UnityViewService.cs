@@ -46,7 +46,13 @@ namespace Common
             {
                 case "enemy":
                 {
-                    var viewObject = UnityEngine.Object.Instantiate(_enemyPrefab, _root);
+                    if (!ge.hasInitialPosition || !ge.hasInitialRotation || !ge.hasAsset)
+                    {
+                        throw new Exception("Every instantiated GO through View Service should contain all init params");
+                    }
+
+                    var viewObject = UnityEngine.Object.Instantiate(_enemyPrefab, ge.initialPosition.Value,
+                        ge.initialRotation.Value, _root);
                     AddView(ctx, ge, viewObject);
                     return viewObject;
                 }

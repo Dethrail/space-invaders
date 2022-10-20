@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Common;
 using Entitas;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace SpaceInvaders.Game
@@ -69,6 +70,18 @@ namespace SpaceInvaders.Game
 
         private void CreateAliens()
         {
+            for (var i = 0; i < 6; i++)
+            {
+                for (var j = 0; j < 6; j++)
+                {
+                    var x = -6.9f + 2.3f * i;
+                    var y = 9.2f - 2.0f * j;
+                    var enemyEntity = _contexts.game.CreateEntity();
+                    enemyEntity.ReplaceInitialPosition(new Vector3(x, y, 0));
+                    enemyEntity.ReplaceInitialRotation(Quaternion.identity);
+                    enemyEntity.ReplaceAsset("enemy"); // TODO: check it
+                }
+            }
         }
 
         private void CreateObstacles()

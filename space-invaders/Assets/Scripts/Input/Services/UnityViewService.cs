@@ -51,8 +51,7 @@ namespace Common
                         throw new Exception("Every instantiated GO through View Service should contain all init params");
                     }
 
-                    var viewObject = UnityEngine.Object.Instantiate(_enemyPrefab, ge.initialPosition.Value,
-                        ge.initialRotation.Value, _root);
+                    var viewObject = UnityEngine.Object.Instantiate(_enemyPrefab, _root);
                     AddView(ctx, ge, viewObject);
                     return viewObject;
                 }

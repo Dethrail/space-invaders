@@ -5,7 +5,7 @@ namespace Config
 {
     [Config]
     [Unique]
-    public sealed class GenerateCount : IComponent
+    public sealed class GenerateCountComponent : IComponent
     {
         public int Value;
     }

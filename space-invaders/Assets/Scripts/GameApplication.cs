@@ -11,14 +11,15 @@ public class GameApplication : MonoBehaviour
     private Services _services;
 
 
-    [SerializeField] private AssetsSetup _assetsSetup;
+    [SerializeField] private Config.AssetsSetupComponent _assetsSetupComponent;
 
     protected void Awake()
     {
         Application.targetFrameRate = 60;
         _contexts = Contexts.sharedInstance;
         _contexts.game.Reset();
-        _contexts.config.SetAssetsSetup(_assetsSetup);
+        _contexts.config.SetAssetsSetup(_assetsSetupComponent);
+        // _contexts.config.ReplaceAssetsSetup(_assetsSetupComponent);
 
         Configure(_contexts);
 

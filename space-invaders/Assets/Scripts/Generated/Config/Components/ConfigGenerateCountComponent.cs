@@ -9,12 +9,12 @@
 public partial class ConfigContext {
 
     public ConfigEntity generateCountEntity { get { return GetGroup(ConfigMatcher.GenerateCount).GetSingleEntity(); } }
-    public Config.GenerateCount generateCount { get { return generateCountEntity.generateCount; } }
+    public Config.GenerateCountComponent generateCount { get { return generateCountEntity.generateCount; } }
     public bool hasGenerateCount { get { return generateCountEntity != null; } }
 
     public ConfigEntity SetGenerateCount(int newValue) {
         if (hasGenerateCount) {
-            throw new Entitas.EntitasException("Could not set GenerateCount!\n" + this + " already has an entity with Config.GenerateCount!",
+            throw new Entitas.EntitasException("Could not set GenerateCount!\n" + this + " already has an entity with Config.GenerateCountComponent!",
                 "You should check if the context already has a generateCountEntity before setting it or use context.ReplaceGenerateCount().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class ConfigContext {
 //------------------------------------------------------------------------------
 public partial class ConfigEntity {
 
-    public Config.GenerateCount generateCount { get { return (Config.GenerateCount)GetComponent(ConfigComponentsLookup.GenerateCount); } }
+    public Config.GenerateCountComponent generateCount { get { return (Config.GenerateCountComponent)GetComponent(ConfigComponentsLookup.GenerateCount); } }
     public bool hasGenerateCount { get { return HasComponent(ConfigComponentsLookup.GenerateCount); } }
 
     public void AddGenerateCount(int newValue) {
         var index = ConfigComponentsLookup.GenerateCount;
-        var component = (Config.GenerateCount)CreateComponent(index, typeof(Config.GenerateCount));
+        var component = (Config.GenerateCountComponent)CreateComponent(index, typeof(Config.GenerateCountComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceGenerateCount(int newValue) {
         var index = ConfigComponentsLookup.GenerateCount;
-        var component = (Config.GenerateCount)CreateComponent(index, typeof(Config.GenerateCount));
+        var component = (Config.GenerateCountComponent)CreateComponent(index, typeof(Config.GenerateCountComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

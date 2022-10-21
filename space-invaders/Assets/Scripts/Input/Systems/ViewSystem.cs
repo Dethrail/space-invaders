@@ -31,7 +31,7 @@ namespace Common
             foreach (var entity in entities)
             {
                 var view = _viewService.LoadAsset(_contexts, entity);
-                entity.isAssetLoaded = true;
+                entity.RemoveAsset();
 
                 // CopySpecialComponents(view.gameObject, symbolFeedbacks.container.gameObject);
                 // symbolFeedbacks.container.gameObject.tag = "draggable";
@@ -49,6 +49,11 @@ namespace Common
                 // symbolFeedbacks.container.parent = view.transform;
                 // symbolModel.parent = symbolFeedbacks.container.transform;
                 view.transform.position = entity.initialPosition.Value;
+                entity.RemoveInitialPosition();
+                view.transform.rotation = entity.initialRotation.Value;
+                entity.RemoveInitialRotation();
+                
+                entity.isAssetLoaded = true;
             }
         }
     }

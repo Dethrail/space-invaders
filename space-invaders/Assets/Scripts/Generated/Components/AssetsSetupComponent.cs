@@ -8,5 +8,5 @@
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
 public sealed class AssetsSetupComponent : Entitas.IComponent {
-    public Config.AssetsSetup value;
+    public Config.AssetsSetupComponent value;
 }

@@ -20,6 +20,6 @@ public static class ConfigComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AssetsSetupComponent),
-        typeof(Config.GenerateCount)
+        typeof(Config.GenerateCountComponent)
     };
 }

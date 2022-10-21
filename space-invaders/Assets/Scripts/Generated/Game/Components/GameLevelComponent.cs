@@ -12,22 +12,22 @@ public partial class GameContext {
     public SpaceInvaders.Game.LevelComponent level { get { return levelEntity.level; } }
     public bool hasLevel { get { return levelEntity != null; } }
 
-    public GameEntity SetLevel(string newId) {
+    public GameEntity SetLevel(string newValue) {
         if (hasLevel) {
             throw new Entitas.EntitasException("Could not set Level!\n" + this + " already has an entity with SpaceInvaders.Game.LevelComponent!",
                 "You should check if the context already has a levelEntity before setting it or use context.ReplaceLevel().");
         }
         var entity = CreateEntity();
-        entity.AddLevel(newId);
+        entity.AddLevel(newValue);
         return entity;
     }
 
-    public void ReplaceLevel(string newId) {
+    public void ReplaceLevel(string newValue) {
         var entity = levelEntity;
         if (entity == null) {
-            entity = SetLevel(newId);
+            entity = SetLevel(newValue);
         } else {
-            entity.ReplaceLevel(newId);
+            entity.ReplaceLevel(newValue);
         }
     }
 
@@ -49,17 +49,17 @@ public partial class GameEntity {
     public SpaceInvaders.Game.LevelComponent level { get { return (SpaceInvaders.Game.LevelComponent)GetComponent(GameComponentsLookup.Level); } }
     public bool hasLevel { get { return HasComponent(GameComponentsLookup.Level); } }
 
-    public void AddLevel(string newId) {
+    public void AddLevel(string newValue) {
         var index = GameComponentsLookup.Level;
         var component = (SpaceInvaders.Game.LevelComponent)CreateComponent(index, typeof(SpaceInvaders.Game.LevelComponent));
-        component.Id = newId;
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceLevel(string newId) {
+    public void ReplaceLevel(string newValue) {
         var index = GameComponentsLookup.Level;
         var component = (SpaceInvaders.Game.LevelComponent)CreateComponent(index, typeof(SpaceInvaders.Game.LevelComponent));
-        component.Id = newId;
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

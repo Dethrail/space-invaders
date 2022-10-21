@@ -12,7 +12,7 @@ public partial class ConfigContext {
     public AssetsSetupComponent assetsSetup { get { return assetsSetupEntity.assetsSetup; } }
     public bool hasAssetsSetup { get { return assetsSetupEntity != null; } }
 
-    public ConfigEntity SetAssetsSetup(Config.AssetsSetup newValue) {
+    public ConfigEntity SetAssetsSetup(Config.AssetsSetupComponent newValue) {
         if (hasAssetsSetup) {
             throw new Entitas.EntitasException("Could not set AssetsSetup!\n" + this + " already has an entity with AssetsSetupComponent!",
                 "You should check if the context already has a assetsSetupEntity before setting it or use context.ReplaceAssetsSetup().");
@@ -22,7 +22,7 @@ public partial class ConfigContext {
         return entity;
     }
 
-    public void ReplaceAssetsSetup(Config.AssetsSetup newValue) {
+    public void ReplaceAssetsSetup(Config.AssetsSetupComponent newValue) {
         var entity = assetsSetupEntity;
         if (entity == null) {
             entity = SetAssetsSetup(newValue);
@@ -49,14 +49,14 @@ public partial class ConfigEntity {
     public AssetsSetupComponent assetsSetup { get { return (AssetsSetupComponent)GetComponent(ConfigComponentsLookup.AssetsSetup); } }
     public bool hasAssetsSetup { get { return HasComponent(ConfigComponentsLookup.AssetsSetup); } }
 
-    public void AddAssetsSetup(Config.AssetsSetup newValue) {
+    public void AddAssetsSetup(Config.AssetsSetupComponent newValue) {
         var index = ConfigComponentsLookup.AssetsSetup;
         var component = (AssetsSetupComponent)CreateComponent(index, typeof(AssetsSetupComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceAssetsSetup(Config.AssetsSetup newValue) {
+    public void ReplaceAssetsSetup(Config.AssetsSetupComponent newValue) {
         var index = ConfigComponentsLookup.AssetsSetup;
         var component = (AssetsSetupComponent)CreateComponent(index, typeof(AssetsSetupComponent));
         component.value = newValue;

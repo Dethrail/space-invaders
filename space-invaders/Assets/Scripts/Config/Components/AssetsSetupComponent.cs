@@ -8,7 +8,7 @@ namespace Config
     [Config]
     [Unique]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
-    public class AssetsSetup : ScriptableObject
+    public class AssetsSetupComponent : ScriptableObject
     {
         public GameObject EnemyShip;
         public GameObject Player;

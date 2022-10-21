@@ -90,6 +90,10 @@ namespace SpaceInvaders.Game
 
         private void CreatePlayer()
         {
+            var enemyEntity = _contexts.game.CreateEntity();
+            enemyEntity.ReplaceInitialPosition(new Vector3(0, -14, 0f));
+            enemyEntity.ReplaceInitialRotation( Quaternion.Euler(-90,0,0));
+            enemyEntity.ReplaceAsset("player"); // TODO: check it
         }
     }
 }

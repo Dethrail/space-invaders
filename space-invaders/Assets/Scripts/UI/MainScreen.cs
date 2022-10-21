@@ -32,7 +32,7 @@ namespace SpaceInvaders.UI
             var e = Contexts.sharedInstance.game.CreateEntity();
             var lc = new LevelComponent
             {
-                Id = "first level"
+                Value = "first level"
             };
 
             e.ReplaceRestartLevel(lc, false);

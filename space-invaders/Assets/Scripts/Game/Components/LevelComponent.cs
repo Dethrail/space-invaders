@@ -7,6 +7,6 @@ namespace SpaceInvaders.Game
     [Unique]
     public class LevelComponent : IComponent
     {
-        public string Id;
+        public string Value;
     }
 }

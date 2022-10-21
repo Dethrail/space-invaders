@@ -8,7 +8,6 @@ public class GameApplication : MonoBehaviour
     private Systems _systems;
 
     private Contexts _contexts;
-    private Services _services;
 
 
     [SerializeField] private Config.AssetsSetupComponent _assetsSetupComponent;
@@ -23,16 +22,9 @@ public class GameApplication : MonoBehaviour
 
         Configure(_contexts);
 
-        _services = new Services
-        {
-            ViewService = new UnityViewService(_contexts),
-            InputService = new UnityInputService(_contexts, Camera.main),
-            TimeService = new UnityTimeService(_contexts),
-            EnemyObjectService = new EnemyObjectService(_contexts),
-            PlayerObjectService = new PlayerObjectService(_contexts),
-        };
 
-        _systems = new RootSystems(_contexts, _services);
+
+        _systems = new RootSystems(_contexts);
     }
 
     public void Start()

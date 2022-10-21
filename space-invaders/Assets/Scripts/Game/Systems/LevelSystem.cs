@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using Common;
 using Entitas;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace SpaceInvaders.Game
@@ -9,16 +7,12 @@ namespace SpaceInvaders.Game
     public sealed class LevelSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     {
         private readonly Contexts _contexts;
-        private readonly EnemyObjectService _enemyObjectService;
 
-        private readonly PlayerObjectService _playerObjectService;
         // private const int _seedPrimeNumber = int.MaxValue;
 
-        public LevelSystem(Contexts contexts, Services services) : base(contexts.game)
+        public LevelSystem(Contexts contexts) : base(contexts.game)
         {
             _contexts = contexts;
-            _enemyObjectService = services.EnemyObjectService;
-            _playerObjectService = services.PlayerObjectService;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -92,7 +86,7 @@ namespace SpaceInvaders.Game
         {
             var enemyEntity = _contexts.game.CreateEntity();
             enemyEntity.ReplaceInitialPosition(new Vector3(0, -14, 0f));
-            enemyEntity.ReplaceInitialRotation( Quaternion.Euler(-90,0,0));
+            enemyEntity.ReplaceInitialRotation( Quaternion.Euler(0,0,0));
             enemyEntity.ReplaceAsset("player"); // TODO: check it
         }
     }

@@ -4,10 +4,10 @@ namespace SpaceInvaders.Game
 {
     public class GameSystems : Feature
     {
-        public GameSystems(Contexts contexts, Services services)
+        public GameSystems(Contexts contexts)
         {
-            Add(new LevelSystem(contexts, services));
-            Add(new ViewSystem(contexts, services));
+            Add(new LevelSystem(contexts));
+            Add(new ViewSystem(contexts));
             //
             // Add(new DragSystem(contexts));
             // Add(new GameRestartSystem(contexts));

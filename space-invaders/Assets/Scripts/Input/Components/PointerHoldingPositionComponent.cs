@@ -8,6 +8,6 @@ namespace Common
     [Unique]
     public sealed class PointerHoldingPositionComponent : IComponent
     {
-        public Vector3 value;
+        public Vector3 Value;
     }
 }

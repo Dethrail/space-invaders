@@ -52,14 +52,14 @@ public partial class InputEntity {
     public void AddPointerHoldingTime(float newValue) {
         var index = InputComponentsLookup.PointerHoldingTime;
         var component = (Common.PointerHoldingTimeComponent)CreateComponent(index, typeof(Common.PointerHoldingTimeComponent));
-        component.value = newValue;
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePointerHoldingTime(float newValue) {
         var index = InputComponentsLookup.PointerHoldingTime;
         var component = (Common.PointerHoldingTimeComponent)CreateComponent(index, typeof(Common.PointerHoldingTimeComponent));
-        component.value = newValue;
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

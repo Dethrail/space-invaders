@@ -9,20 +9,26 @@
 public static class InputComponentsLookup {
 
     public const int DeltaTime = 0;
-    public const int PointerHolding = 1;
-    public const int PointerHoldingPosition = 2;
-    public const int PointerHoldingTime = 3;
-    public const int PointerReleased = 4;
-    public const int PointerStartedHolding = 5;
-    public const int RealtimeSinceStartup = 6;
-    public const int Restart = 7;
-    public const int InputDestroyedListener = 8;
-    public const int Destroyed = 9;
+    public const int KeyHoldingTime = 1;
+    public const int KeyReleased = 2;
+    public const int KeyStartedHolding = 3;
+    public const int PointerHolding = 4;
+    public const int PointerHoldingPosition = 5;
+    public const int PointerHoldingTime = 6;
+    public const int PointerReleased = 7;
+    public const int PointerStartedHolding = 8;
+    public const int RealtimeSinceStartup = 9;
+    public const int Restart = 10;
+    public const int InputDestroyedListener = 11;
+    public const int Destroyed = 12;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "DeltaTime",
+        "KeyHoldingTime",
+        "KeyReleased",
+        "KeyStartedHolding",
         "PointerHolding",
         "PointerHoldingPosition",
         "PointerHoldingTime",
@@ -36,6 +42,9 @@ public static class InputComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Common.DeltaTimeComponent),
+        typeof(Common.KeyHoldingTimeComponent),
+        typeof(Common.KeyReleasedComponent),
+        typeof(Common.KeyStartedHoldingComponent),
         typeof(Common.PointerHoldingComponent),
         typeof(Common.PointerHoldingPositionComponent),
         typeof(Common.PointerHoldingTimeComponent),

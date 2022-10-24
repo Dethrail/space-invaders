@@ -52,14 +52,14 @@ public partial class InputEntity {
     public void AddPointerHoldingPosition(UnityEngine.Vector3 newValue) {
         var index = InputComponentsLookup.PointerHoldingPosition;
         var component = (Common.PointerHoldingPositionComponent)CreateComponent(index, typeof(Common.PointerHoldingPositionComponent));
-        component.value = newValue;
+        component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePointerHoldingPosition(UnityEngine.Vector3 newValue) {
         var index = InputComponentsLookup.PointerHoldingPosition;
         var component = (Common.PointerHoldingPositionComponent)CreateComponent(index, typeof(Common.PointerHoldingPositionComponent));
-        component.value = newValue;
+        component.Value = newValue;
         ReplaceComponent(index, component);
     }
 

@@ -7,6 +7,6 @@ namespace Common
     [Unique]
     public sealed class PointerHoldingTimeComponent : IComponent
     {
-        public float value;
+        public float Value;
     }
 }

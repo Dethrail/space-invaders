@@ -11,14 +11,14 @@ public partial class InputEntity {
     public Common.KeyReleasedComponent keyReleased { get { return (Common.KeyReleasedComponent)GetComponent(InputComponentsLookup.KeyReleased); } }
     public bool hasKeyReleased { get { return HasComponent(InputComponentsLookup.KeyReleased); } }
 
-    public void AddKeyReleased(char newValue) {
+    public void AddKeyReleased(UnityEngine.KeyCode newValue) {
         var index = InputComponentsLookup.KeyReleased;
         var component = (Common.KeyReleasedComponent)CreateComponent(index, typeof(Common.KeyReleasedComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceKeyReleased(char newValue) {
+    public void ReplaceKeyReleased(UnityEngine.KeyCode newValue) {
         var index = InputComponentsLookup.KeyReleased;
         var component = (Common.KeyReleasedComponent)CreateComponent(index, typeof(Common.KeyReleasedComponent));
         component.Value = newValue;

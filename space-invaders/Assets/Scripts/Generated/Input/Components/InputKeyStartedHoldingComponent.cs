@@ -11,14 +11,14 @@ public partial class InputEntity {
     public Common.KeyStartedHoldingComponent keyStartedHolding { get { return (Common.KeyStartedHoldingComponent)GetComponent(InputComponentsLookup.KeyStartedHolding); } }
     public bool hasKeyStartedHolding { get { return HasComponent(InputComponentsLookup.KeyStartedHolding); } }
 
-    public void AddKeyStartedHolding(char newValue) {
+    public void AddKeyStartedHolding(UnityEngine.KeyCode newValue) {
         var index = InputComponentsLookup.KeyStartedHolding;
         var component = (Common.KeyStartedHoldingComponent)CreateComponent(index, typeof(Common.KeyStartedHoldingComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceKeyStartedHolding(char newValue) {
+    public void ReplaceKeyStartedHolding(UnityEngine.KeyCode newValue) {
         var index = InputComponentsLookup.KeyStartedHolding;
         var component = (Common.KeyStartedHoldingComponent)CreateComponent(index, typeof(Common.KeyStartedHoldingComponent));
         component.Value = newValue;

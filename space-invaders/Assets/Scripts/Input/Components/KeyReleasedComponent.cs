@@ -1,10 +1,11 @@
 ﻿using Entitas;
+using UnityEngine;
 
 namespace Common
 {
     [Input]
     public sealed class KeyReleasedComponent : IComponent
     {
-        public char Value;
+        public KeyCode Value;
     }
 }

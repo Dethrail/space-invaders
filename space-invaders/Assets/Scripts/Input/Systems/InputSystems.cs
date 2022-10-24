@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Common
@@ -7,12 +9,14 @@ namespace Common
     {
         private readonly Contexts _contexts;
 
-        private bool _isHolding = false;
-        private Vector3 _holdingPosition = new Vector3(-1, -1, -1);
-        private bool _isStartedHolding = false;
-        private bool _isReleased = false;
-        private float _holdingTime = 0f;
+        private bool _isHolding;
+        private Vector3 _holdingPosition;
+        private bool _isStartedHolding;
+        private bool _isReleased;
+        private float _holdingTime;
+
         private readonly Camera _camera;
+        private readonly Dictionary<KeyCode, InputEntity> _keyEntities = new Dictionary<KeyCode, InputEntity>();
 
         public InputSystems(Contexts contexts, Camera camera)
         {
@@ -28,6 +32,48 @@ namespace Common
                 return;
             }
 
+            MouseAndTouchProcessing();
+            KeyProcessing();
+
+            base.Execute();
+        }
+
+        private void ProcessKey(KeyCode code)
+        {
+            if (Input.GetKeyDown(code))
+            {
+                var inputEntity = _contexts.input.CreateEntity();
+                inputEntity.ReplaceKeyHoldingTime(0);
+                inputEntity.ReplaceKeyStartedHolding(code);
+                _keyEntities.Add(code, inputEntity);
+            }
+            else
+            {
+                if (_keyEntities.TryGetValue(code, out var entity))
+                {
+                    if (Input.GetKey(code))
+                    {
+                        entity.ReplaceKeyHoldingTime(entity.keyHoldingTime.Value + _contexts.input.deltaTime.Value);
+                    }
+                    else
+                    {
+                        entity.isDestroyed = true;
+                        _keyEntities.Remove(code);
+                    }
+                }
+            }
+        }
+
+
+        private void KeyProcessing()
+        {
+            ProcessKey(KeyCode.LeftArrow);
+            ProcessKey(KeyCode.RightArrow);
+        }
+
+
+        private void MouseAndTouchProcessing()
+        {
             if (Pointer.current.press.isPressed)
             {
                 if (_isHolding)
@@ -76,8 +122,6 @@ namespace Common
                 _contexts.input.ReplacePointerHoldingPosition(_holdingPosition);
                 _contexts.input.ReplacePointerHoldingTime(_holdingTime);
             }
-
-            base.Execute();
         }
     }
 }

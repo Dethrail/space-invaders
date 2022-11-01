@@ -6,6 +6,6 @@ namespace Common
     [Game]
     public class InitialPositionComponent : IComponent
     {
-        public Vector3 Value;
+        public Vector2 Value;
     }
 }

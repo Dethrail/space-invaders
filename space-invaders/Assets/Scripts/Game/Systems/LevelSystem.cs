@@ -84,10 +84,11 @@ namespace SpaceInvaders.Game
 
         private void CreatePlayer()
         {
-            var enemyEntity = _contexts.game.CreateEntity();
-            enemyEntity.ReplaceInitialPosition(new Vector3(0, -14, 0f));
-            enemyEntity.ReplaceInitialRotation( Quaternion.Euler(0,0,0));
-            enemyEntity.ReplaceAsset("player"); // TODO: check it
+            var playerEntity = _contexts.game.CreateEntity();
+            playerEntity.isPlayer = true;
+            playerEntity.ReplaceInitialPosition(new Vector3(0, -14, 0f));
+            playerEntity.ReplaceInitialRotation( Quaternion.Euler(0,0,0));
+            playerEntity.ReplaceAsset("player"); // TODO: check it
         }
     }
 }

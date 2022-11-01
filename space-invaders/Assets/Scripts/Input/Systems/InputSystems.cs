@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,6 +39,20 @@ namespace Common
 
         private void ProcessKey(KeyCode code)
         {
+            if (Input.GetKeyUp(code))
+            {
+                if (_keyEntities.TryGetValue(code, out var entity))
+                {
+                    entity.AddKeyReleased(code);
+                    entity.RemoveKeyHoldingTime();
+                    entity.RemoveKeyStartedHolding();
+                    entity.isDestroyed = true;
+                }
+
+                _keyEntities.Remove(code);
+                return;
+            }
+
             if (Input.GetKeyDown(code))
             {
                 var inputEntity = _contexts.input.CreateEntity();
@@ -103,7 +116,6 @@ namespace Common
                     _isReleased = false;
                 }
             }
-
 
             _contexts.input.ReplaceDeltaTime(Time.deltaTime);
             _contexts.input.ReplaceRealtimeSinceStartup(Time.realtimeSinceStartup);

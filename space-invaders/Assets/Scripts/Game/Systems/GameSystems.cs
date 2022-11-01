@@ -6,6 +6,7 @@ namespace SpaceInvaders.Game
     {
         public GameSystems(Contexts contexts)
         {
+            Add(new RigidbodyVelocitySystem(contexts));
             Add(new LevelSystem(contexts));
             Add(new ViewSystem(contexts));
             //
@@ -24,6 +25,7 @@ namespace SpaceInvaders.Game
             Add(new GameDestroyedEventSystem(contexts));
             Add(new LevelTickUpdateSystem(contexts));
             Add(new DestroyEntitySystem(contexts));
+            Add(new PlayerControlSystem(contexts));
         }
     }
 }

@@ -16,23 +16,25 @@ public static class GameComponentsLookup {
     public const int InitialRotation = 5;
     public const int LevelTick = 6;
     public const int Pause = 7;
-    public const int TickPause = 8;
-    public const int View = 9;
-    public const int GameDestroyedListener = 10;
-    public const int PauseListener = 11;
-    public const int Destroyed = 12;
-    public const int Capacity = 13;
-    public const int Cooldown = 14;
-    public const int CurrentLevel = 15;
-    public const int FireSignal = 16;
-    public const int Health = 17;
-    public const int Level = 18;
-    public const int Position = 19;
-    public const int RestartLevel = 20;
-    public const int WeaponType = 21;
-    public const int TickPauseListener = 22;
+    public const int Player = 8;
+    public const int TickPause = 9;
+    public const int View = 10;
+    public const int GameDestroyedListener = 11;
+    public const int PauseListener = 12;
+    public const int Destroyed = 13;
+    public const int Capacity = 14;
+    public const int Cooldown = 15;
+    public const int CurrentLevel = 16;
+    public const int FireSignal = 17;
+    public const int Health = 18;
+    public const int Level = 19;
+    public const int Position = 20;
+    public const int RestartLevel = 21;
+    public const int WeaponType = 22;
+    public const int TickPauseListener = 23;
+    public const int Velocity = 24;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "AnyLevelTickListener",
@@ -43,6 +45,7 @@ public static class GameComponentsLookup {
         "InitialRotation",
         "LevelTick",
         "Pause",
+        "Player",
         "TickPause",
         "View",
         "GameDestroyedListener",
@@ -57,7 +60,8 @@ public static class GameComponentsLookup {
         "Position",
         "RestartLevel",
         "WeaponType",
-        "TickPauseListener"
+        "TickPauseListener",
+        "Velocity"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -69,6 +73,7 @@ public static class GameComponentsLookup {
         typeof(Common.InitialRotationComponent),
         typeof(Common.LevelTickComponent),
         typeof(Common.PauseComponent),
+        typeof(Common.PlayerComponent),
         typeof(Common.TickPauseComponent),
         typeof(Common.ViewComponent),
         typeof(GameDestroyedListenerComponent),
@@ -83,6 +88,7 @@ public static class GameComponentsLookup {
         typeof(SpaceInvaders.Game.PositionComponent),
         typeof(SpaceInvaders.Game.RestartLevelComponent),
         typeof(SpaceInvaders.Game.WeaponTypeComponent),
-        typeof(TickPauseListenerComponent)
+        typeof(TickPauseListenerComponent),
+        typeof(VelocityComponent)
     };
 }

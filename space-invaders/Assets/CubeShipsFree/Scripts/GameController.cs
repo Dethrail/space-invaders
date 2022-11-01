@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CubeSpaceFree
@@ -45,7 +46,7 @@ namespace CubeSpaceFree
 
         public void Restart()
         {
-            Application.LoadLevel(Application.loadedLevelName);
+            SceneManager.LoadSceneAsync("Scenes/SampleScene");
         }
 
         IEnumerator SpawnWaves()

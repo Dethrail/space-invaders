@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Common
+namespace SpaceInvaders.Game
 {
     [Game]
     public class InitialRotationComponent : IComponent

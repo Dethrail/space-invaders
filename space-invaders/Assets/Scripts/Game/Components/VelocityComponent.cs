@@ -1,8 +1,11 @@
 ﻿using Entitas;
 using UnityEngine;
 
-[Game]
-public class VelocityComponent : IComponent
+namespace SpaceInvaders.Game
 {
-    public Vector3 Value;
+    [Game]
+    public class VelocityComponent : IComponent
+    {
+        public Vector3 Value;
+    }
 }

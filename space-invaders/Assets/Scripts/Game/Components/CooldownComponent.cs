@@ -1,7 +1,7 @@
-﻿namespace SpaceInvaders.Game
+﻿using Entitas;
+
+namespace SpaceInvaders.Game
 {
-    using Entitas;
-    
     [Game]
     public class CooldownComponent : IComponent
     {

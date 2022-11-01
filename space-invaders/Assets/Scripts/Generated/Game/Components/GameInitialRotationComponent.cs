@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Common.InitialRotationComponent initialRotation { get { return (Common.InitialRotationComponent)GetComponent(GameComponentsLookup.InitialRotation); } }
+    public SpaceInvaders.Game.InitialRotationComponent initialRotation { get { return (SpaceInvaders.Game.InitialRotationComponent)GetComponent(GameComponentsLookup.InitialRotation); } }
     public bool hasInitialRotation { get { return HasComponent(GameComponentsLookup.InitialRotation); } }
 
     public void AddInitialRotation(UnityEngine.Quaternion newValue) {
         var index = GameComponentsLookup.InitialRotation;
-        var component = (Common.InitialRotationComponent)CreateComponent(index, typeof(Common.InitialRotationComponent));
+        var component = (SpaceInvaders.Game.InitialRotationComponent)CreateComponent(index, typeof(SpaceInvaders.Game.InitialRotationComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceInitialRotation(UnityEngine.Quaternion newValue) {
         var index = GameComponentsLookup.InitialRotation;
-        var component = (Common.InitialRotationComponent)CreateComponent(index, typeof(Common.InitialRotationComponent));
+        var component = (SpaceInvaders.Game.InitialRotationComponent)CreateComponent(index, typeof(SpaceInvaders.Game.InitialRotationComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

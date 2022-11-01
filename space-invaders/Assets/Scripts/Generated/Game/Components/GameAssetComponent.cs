@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Common.AssetComponent asset { get { return (Common.AssetComponent)GetComponent(GameComponentsLookup.Asset); } }
+    public SpaceInvaders.Game.AssetComponent asset { get { return (SpaceInvaders.Game.AssetComponent)GetComponent(GameComponentsLookup.Asset); } }
     public bool hasAsset { get { return HasComponent(GameComponentsLookup.Asset); } }
 
     public void AddAsset(string newValue) {
         var index = GameComponentsLookup.Asset;
-        var component = (Common.AssetComponent)CreateComponent(index, typeof(Common.AssetComponent));
+        var component = (SpaceInvaders.Game.AssetComponent)CreateComponent(index, typeof(SpaceInvaders.Game.AssetComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceAsset(string newValue) {
         var index = GameComponentsLookup.Asset;
-        var component = (Common.AssetComponent)CreateComponent(index, typeof(Common.AssetComponent));
+        var component = (SpaceInvaders.Game.AssetComponent)CreateComponent(index, typeof(SpaceInvaders.Game.AssetComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Common.AssetLoadedComponent assetLoadedComponent = new Common.AssetLoadedComponent();
+    static readonly SpaceInvaders.Game.AssetLoadedComponent assetLoadedComponent = new SpaceInvaders.Game.AssetLoadedComponent();
 
     public bool isAssetLoaded {
         get { return HasComponent(GameComponentsLookup.AssetLoaded); }

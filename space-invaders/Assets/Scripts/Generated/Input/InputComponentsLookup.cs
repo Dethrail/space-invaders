@@ -53,6 +53,6 @@ public static class InputComponentsLookup {
         typeof(Common.RealtimeSinceStartupComponent),
         typeof(Common.RestartComponent),
         typeof(InputDestroyedListenerComponent),
-        typeof(scripts.game.destroy.DestroyedComponent)
+        typeof(SpaceInvaders.Game.DestroyedComponent)
     };
 }

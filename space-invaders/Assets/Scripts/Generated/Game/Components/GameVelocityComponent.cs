@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public VelocityComponent velocity { get { return (VelocityComponent)GetComponent(GameComponentsLookup.Velocity); } }
+    public SpaceInvaders.Game.VelocityComponent velocity { get { return (SpaceInvaders.Game.VelocityComponent)GetComponent(GameComponentsLookup.Velocity); } }
     public bool hasVelocity { get { return HasComponent(GameComponentsLookup.Velocity); } }
 
     public void AddVelocity(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.Velocity;
-        var component = (VelocityComponent)CreateComponent(index, typeof(VelocityComponent));
+        var component = (SpaceInvaders.Game.VelocityComponent)CreateComponent(index, typeof(SpaceInvaders.Game.VelocityComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceVelocity(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.Velocity;
-        var component = (VelocityComponent)CreateComponent(index, typeof(VelocityComponent));
+        var component = (SpaceInvaders.Game.VelocityComponent)CreateComponent(index, typeof(SpaceInvaders.Game.VelocityComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

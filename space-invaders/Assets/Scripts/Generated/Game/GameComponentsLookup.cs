@@ -9,40 +9,35 @@
 public static class GameComponentsLookup {
 
     public const int AnyLevelTickListener = 0;
-    public const int Asset = 1;
-    public const int AssetLoaded = 2;
-    public const int InitialForce = 3;
-    public const int InitialPosition = 4;
-    public const int InitialRotation = 5;
-    public const int LevelTick = 6;
-    public const int Pause = 7;
-    public const int Player = 8;
-    public const int TickPause = 9;
-    public const int View = 10;
-    public const int GameDestroyedListener = 11;
-    public const int PauseListener = 12;
+    public const int LevelTick = 1;
+    public const int Pause = 2;
+    public const int Player = 3;
+    public const int TickPause = 4;
+    public const int View = 5;
+    public const int GameDestroyedListener = 6;
+    public const int PauseListener = 7;
+    public const int Asset = 8;
+    public const int AssetLoaded = 9;
+    public const int Capacity = 10;
+    public const int Cooldown = 11;
+    public const int CurrentLevel = 12;
     public const int Destroyed = 13;
-    public const int Capacity = 14;
-    public const int Cooldown = 15;
-    public const int CurrentLevel = 16;
-    public const int FireSignal = 17;
-    public const int Health = 18;
+    public const int FireSignal = 14;
+    public const int Health = 15;
+    public const int InitialForce = 16;
+    public const int InitialPosition = 17;
+    public const int InitialRotation = 18;
     public const int Level = 19;
     public const int Position = 20;
     public const int RestartLevel = 21;
-    public const int WeaponType = 22;
-    public const int TickPauseListener = 23;
-    public const int Velocity = 24;
+    public const int Velocity = 22;
+    public const int WeaponType = 23;
+    public const int TickPauseListener = 24;
 
     public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "AnyLevelTickListener",
-        "Asset",
-        "AssetLoaded",
-        "InitialForce",
-        "InitialPosition",
-        "InitialRotation",
         "LevelTick",
         "Pause",
         "Player",
@@ -50,27 +45,27 @@ public static class GameComponentsLookup {
         "View",
         "GameDestroyedListener",
         "PauseListener",
-        "Destroyed",
+        "Asset",
+        "AssetLoaded",
         "Capacity",
         "Cooldown",
         "CurrentLevel",
+        "Destroyed",
         "FireSignal",
         "Health",
+        "InitialForce",
+        "InitialPosition",
+        "InitialRotation",
         "Level",
         "Position",
         "RestartLevel",
+        "Velocity",
         "WeaponType",
-        "TickPauseListener",
-        "Velocity"
+        "TickPauseListener"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AnyLevelTickListenerComponent),
-        typeof(Common.AssetComponent),
-        typeof(Common.AssetLoadedComponent),
-        typeof(Common.InitialForceComponent),
-        typeof(Common.InitialPositionComponent),
-        typeof(Common.InitialRotationComponent),
         typeof(Common.LevelTickComponent),
         typeof(Common.PauseComponent),
         typeof(Common.PlayerComponent),
@@ -78,17 +73,22 @@ public static class GameComponentsLookup {
         typeof(Common.ViewComponent),
         typeof(GameDestroyedListenerComponent),
         typeof(PauseListenerComponent),
-        typeof(scripts.game.destroy.DestroyedComponent),
+        typeof(SpaceInvaders.Game.AssetComponent),
+        typeof(SpaceInvaders.Game.AssetLoadedComponent),
         typeof(SpaceInvaders.Game.CapacityComponent),
         typeof(SpaceInvaders.Game.CooldownComponent),
         typeof(SpaceInvaders.Game.CurrentLevelComponent),
+        typeof(SpaceInvaders.Game.DestroyedComponent),
         typeof(SpaceInvaders.Game.FireSignalComponent),
         typeof(SpaceInvaders.Game.HealthComponent),
+        typeof(SpaceInvaders.Game.InitialForceComponent),
+        typeof(SpaceInvaders.Game.InitialPositionComponent),
+        typeof(SpaceInvaders.Game.InitialRotationComponent),
         typeof(SpaceInvaders.Game.LevelComponent),
         typeof(SpaceInvaders.Game.PositionComponent),
         typeof(SpaceInvaders.Game.RestartLevelComponent),
+        typeof(SpaceInvaders.Game.VelocityComponent),
         typeof(SpaceInvaders.Game.WeaponTypeComponent),
-        typeof(TickPauseListenerComponent),
-        typeof(VelocityComponent)
+        typeof(TickPauseListenerComponent)
     };
 }

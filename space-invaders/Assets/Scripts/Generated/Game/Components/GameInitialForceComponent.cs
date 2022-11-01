@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Common.InitialForceComponent initialForce { get { return (Common.InitialForceComponent)GetComponent(GameComponentsLookup.InitialForce); } }
+    public SpaceInvaders.Game.InitialForceComponent initialForce { get { return (SpaceInvaders.Game.InitialForceComponent)GetComponent(GameComponentsLookup.InitialForce); } }
     public bool hasInitialForce { get { return HasComponent(GameComponentsLookup.InitialForce); } }
 
     public void AddInitialForce(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.InitialForce;
-        var component = (Common.InitialForceComponent)CreateComponent(index, typeof(Common.InitialForceComponent));
+        var component = (SpaceInvaders.Game.InitialForceComponent)CreateComponent(index, typeof(SpaceInvaders.Game.InitialForceComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceInitialForce(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.InitialForce;
-        var component = (Common.InitialForceComponent)CreateComponent(index, typeof(Common.InitialForceComponent));
+        var component = (SpaceInvaders.Game.InitialForceComponent)CreateComponent(index, typeof(SpaceInvaders.Game.InitialForceComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

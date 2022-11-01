@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly scripts.game.destroy.DestroyedComponent destroyedComponent = new scripts.game.destroy.DestroyedComponent();
+    static readonly SpaceInvaders.Game.DestroyedComponent destroyedComponent = new SpaceInvaders.Game.DestroyedComponent();
 
     public bool isDestroyed {
         get { return HasComponent(InputComponentsLookup.Destroyed); }

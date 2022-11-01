@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-namespace scripts.game.destroy
+namespace SpaceInvaders.Game
 {
     [Game]
     [Input]

@@ -15,8 +15,6 @@ public class RootSystems : Feature
         // somehow move this systems to end
         Add(new GameSystems(contexts));
         Add(new GameEventSystems(contexts));
-
-        Add(new ViewUpdateSystem(contexts));
     }
 
     public sealed override Systems Add(ISystem system)

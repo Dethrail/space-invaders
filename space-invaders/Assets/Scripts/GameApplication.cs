@@ -22,8 +22,6 @@ public class GameApplication : MonoBehaviour
 
         Configure(_contexts);
 
-
-
         _systems = new RootSystems(_contexts);
     }
 

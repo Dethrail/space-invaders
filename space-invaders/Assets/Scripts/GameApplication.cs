@@ -6,19 +6,16 @@ using Config;
 public class GameApplication : MonoBehaviour
 {
     private Systems _systems;
-
     private Contexts _contexts;
 
-
-    [SerializeField] private Config.AssetsSetupComponent _assetsSetupComponent;
+    [SerializeField] private Config.AssetsSetupComponent AssetsSetupComponent;
 
     protected void Awake()
     {
         Application.targetFrameRate = 60;
         _contexts = Contexts.sharedInstance;
         _contexts.game.Reset();
-        _contexts.config.SetAssetsSetup(_assetsSetupComponent);
-        // _contexts.config.ReplaceAssetsSetup(_assetsSetupComponent);
+        _contexts.config.SetAssetsSetup(AssetsSetupComponent);
 
         Configure(_contexts);
 

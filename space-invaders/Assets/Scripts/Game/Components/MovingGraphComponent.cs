@@ -2,7 +2,10 @@
 
 namespace SpaceInvaders.Game
 {
-    public class MovingGraphComponent
+    using Entitas;
+
+    [Game]
+    public class MovingGraphComponent : IComponent
     {
         public AnimationCurve Value;
     }

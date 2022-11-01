@@ -28,13 +28,14 @@ public static class GameComponentsLookup {
     public const int InitialPosition = 17;
     public const int InitialRotation = 18;
     public const int Level = 19;
-    public const int Position = 20;
-    public const int RestartLevel = 21;
-    public const int Velocity = 22;
-    public const int WeaponType = 23;
-    public const int TickPauseListener = 24;
+    public const int MovingGraph = 20;
+    public const int Position = 21;
+    public const int RestartLevel = 22;
+    public const int Velocity = 23;
+    public const int WeaponType = 24;
+    public const int TickPauseListener = 25;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "AnyLevelTickListener",
@@ -57,6 +58,7 @@ public static class GameComponentsLookup {
         "InitialPosition",
         "InitialRotation",
         "Level",
+        "MovingGraph",
         "Position",
         "RestartLevel",
         "Velocity",
@@ -85,6 +87,7 @@ public static class GameComponentsLookup {
         typeof(SpaceInvaders.Game.InitialPositionComponent),
         typeof(SpaceInvaders.Game.InitialRotationComponent),
         typeof(SpaceInvaders.Game.LevelComponent),
+        typeof(SpaceInvaders.Game.MovingGraphComponent),
         typeof(SpaceInvaders.Game.PositionComponent),
         typeof(SpaceInvaders.Game.RestartLevelComponent),
         typeof(SpaceInvaders.Game.VelocityComponent),

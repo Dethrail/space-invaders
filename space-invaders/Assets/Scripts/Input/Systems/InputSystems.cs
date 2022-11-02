@@ -82,6 +82,7 @@ namespace Common
         {
             ProcessKey(KeyCode.LeftArrow);
             ProcessKey(KeyCode.RightArrow);
+            ProcessKey(KeyCode.Space);
         }
 
 

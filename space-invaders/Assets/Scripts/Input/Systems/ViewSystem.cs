@@ -11,6 +11,7 @@ namespace Common
 
         private readonly GameObject _playerPrefab;
         private readonly GameObject _enemyPrefab;
+        private readonly GameObject _projectilePrefab;
 
         private Transform _root;
 
@@ -22,6 +23,7 @@ namespace Common
 
             _playerPrefab = assetConfig.Player;
             _enemyPrefab = assetConfig.EnemyShip;
+            _projectilePrefab = assetConfig.Projectile;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -40,28 +42,6 @@ namespace Common
             {
                 var view = LoadAsset(_contexts, entity);
                 entity.RemoveAsset();
-
-                // CopySpecialComponents(view.gameObject, symbolFeedbacks.container.gameObject);
-                // symbolFeedbacks.container.gameObject.tag = "draggable";
-                // symbolFeedbacks.name = entity.symbol.value.ToString();
-                // view.transform.parent = symbolFeedbacks.container;
-                // symbolFeedbacks.container.position = entity.initialPosition.value; // set initial position
-                // symbolFeedbacks.container.rotation = entity.initialRotation.value;
-
-                // entity.symbol.parentFeedbacks = symbolFeedbacks;
-                // var rigidbody = symbolFeedbacks.GetComponentInChildren<Rigidbody>();
-                // rigidbody.AddForce(entity.initialForce.value);
-
-                // var symbolModel = view.transform.GetChild(0);
-                // view.transform.parent = symbolFeedbacks.transform;
-                // symbolFeedbacks.container.parent = view.transform;
-                // symbolModel.parent = symbolFeedbacks.container.transform;
-                view.transform.position = entity.initialPosition.Value;
-                entity.RemoveInitialPosition();
-                view.transform.rotation = entity.initialRotation.Value;
-                entity.RemoveInitialRotation();
-
-                entity.isAssetLoaded = true;
             }
         }
 
@@ -77,6 +57,26 @@ namespace Common
             {
                 Debug.Log("No view");
             }
+
+            if (ge.hasInitialPosition)
+            {
+                go.transform.position = ge.initialPosition.Value;
+                ge.RemoveInitialPosition();
+            }
+
+            if (ge.hasInitialRotation)
+            {
+                go.transform.rotation = ge.initialRotation.Value;
+                ge.RemoveInitialRotation();
+            }
+
+            if (ge.hasInitialVelocity)
+            {
+                go.transform.GetComponent<Rigidbody>().velocity = ge.initialVelocity.Value;
+                ge.RemoveInitialVelocity();
+            }
+
+            ge.isAssetLoaded = true;
         }
 
         public GameObject LoadAsset(Contexts ctx, GameEntity ge)
@@ -105,11 +105,19 @@ namespace Common
                     AddView(ctx, ge, viewObject);
                     return viewObject;
                 }
+
+                case "projectile":
+                {
+                    var viewObject = UnityEngine.Object.Instantiate(_projectilePrefab, _root);
+                    AddView(ctx, ge, viewObject);
+                    return viewObject;
+                }
                 default:
                 {
                     throw new Exception("Could not load asset");
                 }
             }
+
 
             // if (ge.hasSocket) {
             //     //TODO: move to ecs

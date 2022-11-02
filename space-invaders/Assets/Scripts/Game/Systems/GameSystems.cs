@@ -6,6 +6,8 @@ namespace SpaceInvaders.Game
     {
         public GameSystems(Contexts contexts)
         {
+            Add(new WeaponCooldownSystem(contexts));
+            Add(new WeaponSystem(contexts));
             Add(new ViewUpdateSystem(contexts));
             Add(new RigidbodyVelocitySystem(contexts));
             Add(new LevelSystem(contexts));

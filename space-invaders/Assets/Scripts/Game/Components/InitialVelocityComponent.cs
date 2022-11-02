@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SpaceInvaders.Game
 {
     [Game]
-    public class InitialForceComponent : IComponent
+    public class InitialVelocityComponent : IComponent
     {
         public Vector3 Value;
     }

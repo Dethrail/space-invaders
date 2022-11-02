@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Entitas;
+using SpaceInvaders.Game;
 using UnityEngine;
 
 public sealed class PlayerControlSystem : ReactiveSystem<InputEntity>
@@ -57,6 +58,11 @@ public sealed class PlayerControlSystem : ReactiveSystem<InputEntity>
                         }
 
                         _player.ReplaceVelocity(worldVelocity);
+                    }
+
+                    if (e.keyStartedHolding.Value == KeyCode.Space)
+                    {
+                        _player.isFireSignal = true;
                     }
                 }
 

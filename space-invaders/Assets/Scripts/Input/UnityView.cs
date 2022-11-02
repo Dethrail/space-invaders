@@ -1,9 +1,6 @@
-﻿// using DG.Tweening;
-
-using Entitas;
+﻿using Entitas;
 using Entitas.Unity;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Common
 {
@@ -15,17 +12,7 @@ namespace Common
         {
             _entity = (GameEntity) entity;
             _entity.AddGameDestroyedListener(this);
-
-            // if (_entity.hasSymbol) {
-            //     var r = GetComponentInChildren<MeshRenderer>();
-            //     var material = r.material;
-            //     var oldColor = material.color;
-            //     var newColor = new Color(oldColor.r, oldColor.g, oldColor.b, 1);
-            //
-            //     r.material = Instantiate(material);
-            //     r.material.DOColor(newColor, 1f);
-            // }
-
+            
 #if UNITY_EDITOR
             gameObject.Link(entity);
 #endif
@@ -39,14 +26,14 @@ namespace Common
         /// <summary>
         /// Giving method to check how interpolation looks and check how is moving of objects are smooth
         /// </summary>
-        public void DrawPositioningGraph()
+        private void DrawPositioningGraph()
         {
             if (!_entity.hasMovingGraph)
             {
                 _entity.ReplaceMovingGraph(new AnimationCurve());
             }
 
-            var kf = new Keyframe(Time.time, transform.position.x, 0, 0, 0, 0);
+            var kf = new Keyframe(Time.time, transform.position.y, 0, 0, 0, 0);
             _entity.movingGraph.Value.AddKey(kf);
         }
 #endif

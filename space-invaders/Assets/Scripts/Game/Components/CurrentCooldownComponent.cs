@@ -3,7 +3,7 @@
 namespace SpaceInvaders.Game
 {
     [Game]
-    public class CooldownSettingComponent : IComponent
+    public class CurrentCooldownComponent : IComponent
     {
         public float Value;
     }

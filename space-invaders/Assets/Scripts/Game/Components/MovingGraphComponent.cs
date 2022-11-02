@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using Entitas;
+using UnityEngine;
 
 namespace SpaceInvaders.Game
 {
-    using Entitas;
-
     [Game]
     public class MovingGraphComponent : IComponent
     {

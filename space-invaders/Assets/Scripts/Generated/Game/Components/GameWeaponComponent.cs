@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SpaceInvaders.Game.CooldownComponent cooldown { get { return (SpaceInvaders.Game.CooldownComponent)GetComponent(GameComponentsLookup.Cooldown); } }
-    public bool hasCooldown { get { return HasComponent(GameComponentsLookup.Cooldown); } }
+    public Game.Components.WeaponComponent weapon { get { return (Game.Components.WeaponComponent)GetComponent(GameComponentsLookup.Weapon); } }
+    public bool hasWeapon { get { return HasComponent(GameComponentsLookup.Weapon); } }
 
-    public void AddCooldown(float newValue) {
-        var index = GameComponentsLookup.Cooldown;
-        var component = (SpaceInvaders.Game.CooldownComponent)CreateComponent(index, typeof(SpaceInvaders.Game.CooldownComponent));
+    public void AddWeapon(GameEntity newValue) {
+        var index = GameComponentsLookup.Weapon;
+        var component = (Game.Components.WeaponComponent)CreateComponent(index, typeof(Game.Components.WeaponComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceCooldown(float newValue) {
-        var index = GameComponentsLookup.Cooldown;
-        var component = (SpaceInvaders.Game.CooldownComponent)CreateComponent(index, typeof(SpaceInvaders.Game.CooldownComponent));
+    public void ReplaceWeapon(GameEntity newValue) {
+        var index = GameComponentsLookup.Weapon;
+        var component = (Game.Components.WeaponComponent)CreateComponent(index, typeof(Game.Components.WeaponComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveCooldown() {
-        RemoveComponent(GameComponentsLookup.Cooldown);
+    public void RemoveWeapon() {
+        RemoveComponent(GameComponentsLookup.Weapon);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCooldown;
+    static Entitas.IMatcher<GameEntity> _matcherWeapon;
 
-    public static Entitas.IMatcher<GameEntity> Cooldown {
+    public static Entitas.IMatcher<GameEntity> Weapon {
         get {
-            if (_matcherCooldown == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Cooldown);
+            if (_matcherWeapon == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Weapon);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCooldown = matcher;
+                _matcherWeapon = matcher;
             }
 
-            return _matcherCooldown;
+            return _matcherWeapon;
         }
     }
 }

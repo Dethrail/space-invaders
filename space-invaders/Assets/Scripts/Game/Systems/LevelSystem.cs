@@ -32,7 +32,6 @@ namespace SpaceInvaders.Game
                 if (entity.hasRestartLevel)
                 {
                     ResetGameState();
-
                     RunLevel(entity.restartLevel.Value);
                     entity.isDestroyed = true;
                     Debug.Log($"Run level\nrestart is [{entity.restartLevel.IsRestart}]");
@@ -59,7 +58,8 @@ namespace SpaceInvaders.Game
 
             CreateAliens();
             CreateObstacles();
-            CreatePlayer();
+            var playerWeapon = CreatePlayerWeapon();
+            CreatePlayer(playerWeapon);
         }
 
         private void CreateAliens()
@@ -82,13 +82,22 @@ namespace SpaceInvaders.Game
         {
         }
 
-        private void CreatePlayer()
+        private void CreatePlayer(GameEntity weapon)
         {
             var playerEntity = _contexts.game.CreateEntity();
             playerEntity.isPlayer = true;
             playerEntity.ReplaceInitialPosition(new Vector3(0, -14, 0f));
-            playerEntity.ReplaceInitialRotation( Quaternion.Euler(0,0,0));
+            playerEntity.ReplaceInitialRotation(Quaternion.Euler(0, 0, 0));
             playerEntity.ReplaceAsset("player"); // TODO: check it
+            playerEntity.ReplaceWeapon(weapon);
+        }
+
+        private GameEntity CreatePlayerWeapon()
+        {
+            var config = _contexts.config.assetsSetup.value;
+            var playerWeapon = _contexts.game.CreateEntity();
+            playerWeapon.ReplaceCooldownSetting(config.Cooldown);
+            return playerWeapon;
         }
     }
 }

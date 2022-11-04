@@ -1068,8 +1068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131e23c0315e434aa7dd42c69527242b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _context: {fileID: 2052628649}
-  _mainScreen: {fileID: 1815555157}
+  Context: {fileID: 2052628649}
+  MainScreen: {fileID: 1815555157}
 --- !u!1 &1369060229
 GameObject:
   m_ObjectHideFlags: 0

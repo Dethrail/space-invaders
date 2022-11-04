@@ -4,31 +4,32 @@ namespace SpaceInvaders.UI
 {
     public class HUDScreen : MonoBehaviour
     {
-        [SerializeField] private GameObject _context = null;
-        [SerializeField] private MainScreen _mainScreen;
+        [SerializeField] private GameObject Context = null;
+        [SerializeField] private MainScreen MainScreen;
 
         // hide all screens except of main
         public void Awake()
         {
-            _context.SetActive(false);
+            Context.SetActive(false);
         }
 
         public void Show()
         {
-            _context.SetActive(true);
+            Context.SetActive(true);
         }
 
         public void Hide()
         {
-            _context.SetActive(false);
+            Context.SetActive(false);
         }
 
         // Called from ui button
         public void OnAbortGame()
         {
-            _mainScreen.Show();
+            MainScreen.Show();
             Hide();
-            
+
+            Contexts.sharedInstance.game.isGameAbortSignal = true;
             // Create abort signal (restart)
         }
     }

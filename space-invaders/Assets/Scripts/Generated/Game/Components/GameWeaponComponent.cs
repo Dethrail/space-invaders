@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Game.Components.WeaponComponent weapon { get { return (Game.Components.WeaponComponent)GetComponent(GameComponentsLookup.Weapon); } }
+    public SpaceInvaders.Game.WeaponComponent weapon { get { return (SpaceInvaders.Game.WeaponComponent)GetComponent(GameComponentsLookup.Weapon); } }
     public bool hasWeapon { get { return HasComponent(GameComponentsLookup.Weapon); } }
 
     public void AddWeapon(GameEntity newValue) {
         var index = GameComponentsLookup.Weapon;
-        var component = (Game.Components.WeaponComponent)CreateComponent(index, typeof(Game.Components.WeaponComponent));
+        var component = (SpaceInvaders.Game.WeaponComponent)CreateComponent(index, typeof(SpaceInvaders.Game.WeaponComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceWeapon(GameEntity newValue) {
         var index = GameComponentsLookup.Weapon;
-        var component = (Game.Components.WeaponComponent)CreateComponent(index, typeof(Game.Components.WeaponComponent));
+        var component = (SpaceInvaders.Game.WeaponComponent)CreateComponent(index, typeof(SpaceInvaders.Game.WeaponComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

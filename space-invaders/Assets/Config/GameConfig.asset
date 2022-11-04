@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   <EnemyShip>k__BackingField: {fileID: 151674, guid: fa1a6147d94db5c40982ce2502a66c1f, type: 3}
-  <Player>k__BackingField: {fileID: 112598, guid: cf1f91c441868ff4cb428887f1fefb5e, type: 3}
-  <Projectile>k__BackingField: {fileID: 338349301180020842, guid: 20304c2c3f5a0c8499f2a4e1b83bc0a8, type: 3}
-  <PlayerVelocityMultiplier>k__BackingField: 10
   <LeftBorderX>k__BackingField: -6.8
   <RightBorderX>k__BackingField: 6.8
-  <PlayerProjectileStartDistance>k__BackingField: 1.25
+  <Player>k__BackingField: {fileID: 112598, guid: cf1f91c441868ff4cb428887f1fefb5e, type: 3}
+  <PlayerVelocityMultiplier>k__BackingField: 10
   <ProjectileVelocity>k__BackingField: 20
+  <ProjectileStartDistance>k__BackingField: 1.25
+  <Projectile>k__BackingField: {fileID: 338349301180020842, guid: 20304c2c3f5a0c8499f2a4e1b83bc0a8, type: 3}
+  <Weapon>k__BackingField: 1
+  <Cooldown>k__BackingField: 1
+  <Damage>k__BackingField: 3

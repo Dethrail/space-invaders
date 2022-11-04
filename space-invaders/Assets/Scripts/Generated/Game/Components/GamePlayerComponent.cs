@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Common.PlayerComponent playerComponent = new Common.PlayerComponent();
+    static readonly SpaceInvaders.Game.PlayerComponent playerComponent = new SpaceInvaders.Game.PlayerComponent();
 
     public bool isPlayer {
         get { return HasComponent(GameComponentsLookup.Player); }

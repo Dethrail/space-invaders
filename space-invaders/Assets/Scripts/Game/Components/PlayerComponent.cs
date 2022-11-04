@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Common
+namespace SpaceInvaders.Game
 {
     [Game]
     public class PlayerComponent : IComponent

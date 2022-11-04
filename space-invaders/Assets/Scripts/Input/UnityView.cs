@@ -8,11 +8,16 @@ namespace Common
     {
         private GameEntity _entity;
 
+        public GameEntity GetGameEntity()
+        {
+            return _entity;
+        }
+
         public void InitializeView(Contexts contexts, IEntity entity)
         {
             _entity = (GameEntity) entity;
             _entity.AddGameDestroyedListener(this);
-            
+
 #if UNITY_EDITOR
             gameObject.Link(entity);
 #endif

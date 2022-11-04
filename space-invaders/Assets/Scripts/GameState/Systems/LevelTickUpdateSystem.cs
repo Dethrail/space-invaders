@@ -28,6 +28,10 @@ namespace Common
             //     _contexts.game.ReplaceTickPause(_contexts.game.tickPause.value - 1);
             //     return;
             // }
+            // if (!_contexts.game.hasLevelTick)
+            // {
+            //     _contexts.game.ReplaceLevelTick(0);
+            // }
 
             _contexts.game.ReplaceLevelTick(_contexts.game.levelTick.currentTick + 1);
         }

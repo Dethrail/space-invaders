@@ -24,4 +24,4 @@ MonoBehaviour:
   <Projectile>k__BackingField: {fileID: 338349301180020842, guid: 20304c2c3f5a0c8499f2a4e1b83bc0a8, type: 3}
   <Weapon>k__BackingField: 1
   <Cooldown>k__BackingField: 1
-  <Damage>k__BackingField: 3
+  <Damage>k__BackingField: 2

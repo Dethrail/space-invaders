@@ -16,9 +16,10 @@ namespace SpaceInvaders.Game
             Add(new GameDestroyedEventSystem(contexts));
             Add(new LevelTickUpdateSystem(contexts));
             Add(new PlayerControlSystem(contexts));
-            
+
             Add(new BorderStoppingSystem(contexts));
             Add(new DestroyEntitySystem(contexts));
+            Add(new AbortGameSystem(contexts));
         }
     }
 }

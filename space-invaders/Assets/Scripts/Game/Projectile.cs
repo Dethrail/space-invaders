@@ -8,11 +8,10 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var otherView = other.GetComponent<UnityView>()?.GetGameEntity();
-        if (otherView != null)
+        if (otherView != null && otherView.isEnemy)
         {
             otherView.isDestroyed = true;
+            ThisView.GetGameEntity().isDestroyed = true;
         }
-
-        ThisView.GetGameEntity().isDestroyed = true;
     }
 }

@@ -74,6 +74,7 @@ namespace SpaceInvaders.Game
                     enemyEntity.ReplaceInitialPosition(new Vector3(x, y, 0));
                     enemyEntity.ReplaceInitialRotation(Quaternion.identity);
                     enemyEntity.ReplaceAsset("enemy"); // TODO: check it
+                    enemyEntity.isEnemy = true;
                 }
             }
         }

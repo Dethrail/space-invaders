@@ -6,11 +6,16 @@ namespace SpaceInvaders.Game
 {
     public class BorderStoppingSystem : ReactiveSystem<GameEntity>
     {
+        private float _topBorderValue;
+        private float _bottomBorderValue;
+
         private float _leftBorderValue;
         private float _rightBorderValue;
 
         public BorderStoppingSystem(Contexts contexts) : base(contexts.game)
         {
+            _topBorderValue = contexts.config.assetsSetup.value.TopBorderX;
+            _bottomBorderValue = contexts.config.assetsSetup.value.BottomBorderX;
             _leftBorderValue = contexts.config.assetsSetup.value.LeftBorderX;
             _rightBorderValue = contexts.config.assetsSetup.value.RightBorderX;
         }
@@ -44,6 +49,14 @@ namespace SpaceInvaders.Game
                     if (_rightBorderValue < e.position.Value.x && movingRight)
                     {
                         playerRigidbody.velocity = Vector3.zero;
+                    }
+                }
+
+                if (e.hasProjectile)
+                {
+                    if (e.position.Value.y > _topBorderValue || e.position.Value.y < _bottomBorderValue)
+                    {
+                        e.isDestroyed = true;
                     }
                 }
             }

@@ -14,9 +14,10 @@ namespace Config
         [field: SerializeField, Header("Game settings")]
         public GameObject EnemyShip { get; private set; }
 
+        [field: SerializeField] public float TopBorderX { get; private set; } = 18.5f;
+        [field: SerializeField] public float BottomBorderX { get; private set; } = -18.5f;
         [field: SerializeField] public float LeftBorderX { get; private set; } = -6.8f;
         [field: SerializeField] public float RightBorderX { get; private set; } = 6.8f;
-
 
         [field: SerializeField, Space(10), Header("Player settings")]
         public GameObject Player { get; private set; }
